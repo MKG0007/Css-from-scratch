@@ -1,225 +1,290 @@
-# Css-from-scratch
-# 🌐 CSS Notes – Beginner to Advanced
+# CSS Notes
 
-This repository contains my handwritten and typed notes on **CSS (Cascading Style Sheets)**, structured from **Level 1 to Level 5**, covering everything from basic syntax to layout techniques, animations, and more.
+## -------------------LEVEL-1-------------------
 
----
+### CSS (Cascading Style Sheets)
+It is a language used to describe the style of a document.
 
-## 📚 Topics Covered
+**Basic syntax:**
+```css
+h3 { /* h3 is the selector. */
+    color: red;
+}
+```
+`color` = property and `red` = value
 
-### 🟦 Level 1 – CSS Basics
+We can also assign one property to multiple elements using this method:
+```css
+e1, e2, en {
+    property;
+}
+```
 
-* **What is CSS**: CSS (Cascading Style Sheets) is a language used to describe the style of a document.
-* **Syntax**:
+**Three methods of applying CSS to HTML:**
+1. **Inline CSS**  
+   Written in the opening tag of the element where CSS is applied.
 
-  ```css
-  h3 {
-    color: red; /* color = property, red = value */
-  }
-  ```
-* **Multiple Selectors**:
+2. **Style Tag CSS**  
+   Written inside the `<head>` tag.
 
-  ```css
-  e1, e2, en {
-    property: value;
-  }
-  ```
-* **Types of CSS**:
+3. **External CSS**  
+   Written in a separate file made for CSS and linked to the HTML file.
 
-  1. **Inline CSS** – Written inside the element's opening tag.
-  2. **Internal CSS** – Written inside a `<style>` tag in the `<head>`.
-  3. **External CSS** – Linked via an external `.css` file.
-* **Preference Order**: Inline > Internal > External
-
-#### 🎨 Color Systems
-
-* **RGB**: `rgb(255, 0, 0)` (max value per color = 255)
-* **HEX**: `#ff0000` (00-ff range)
-* Use color palettes for consistent design.
-
-#### 🔍 Selectors
-
-* Universal: `* {}`
-* Class: `.classname {}`
-* ID: `#idname {}`
-* Element: `tagname {}`
-
-#### 📝 Text Properties
-
-* `text-align: left | right | center`
-* `text-decoration: underline | line-through`
-* `font-weight: normal | bold | 100–900`
-* `font-family: Arial, Italic, Roboto`
-* `font-size`, `line-height`, `text-transform`
-
-#### 📏 Units
-
-* **Absolute**: `px`, `cm`, `mm`, `m`
+**Note:**  
+Preference order: `Inline CSS` > `Style Tag CSS` > `External CSS`  
+In case of conflicts, later CSS has higher importance.
 
 ---
 
-### 🟨 Level 2 – Box Model & Display
+### Color System
+You can set color by name, but many colors have no names.
 
-#### 📦 Box Model
+**RGB Color System:**  
+Red, Green, and Blue are the three primary colors.  
+Example: `rgb(255, 0, 0);` (Max value = 255)
 
-* **Padding**: Space between content and border
-* **Border**: Solid line around content
-* **Margin**: Space outside the element
+**HEX (Hexadecimal) Color System:**  
+Short form to set RGB values.  
+Example: `#ff0000` → (Red: FF, Green: 00, Blue: 00)
 
-#### Border Properties
+**Note:**  
+For better design, use a color palette instead of random colors.
 
-* `border-color`, `border-width`, `border-style`, `border-radius`
-* Shorthand: `border: width style color;`
+---
 
-#### Padding & Margin Shorthand
+### Selectors
+- **Universal Selector:** `* {}` - Applies CSS to the whole document.
+- **Class Selector:** `.className {}` - Applies to multiple elements with the same class.
+- **Element Selector:** `elementName {}` - Applies to elements by tag name.
+- **ID Selector:** `#idName {}` - Applies to a single, uniquely identified element.
 
+---
+
+### Text Properties
+- **text-align:** `right | left | center`  
+  Aligns text based on the parent container.
+- **text-decoration:** `underline | line-through`  
+  Underlines or removes underline from text.
+- **font-weight:** `normal | bold | bolder | lighter`  
+  Value range: 100–900
+- **font-family:** Sets the font style.  
+  Example: `font-family: Arial, Italic, Roboto;`
+- **font-size:** Sets text size.
+- **line-height:** Sets spacing between lines.
+- **text-transform:** `uppercase | lowercase | capitalize`
+
+---
+
+### Units in CSS
+Two types of units:
+1. **Absolute:**  
+   - px (96px = 1 inch)  
+   - cm, mm, m
+
+---
+
+## --------------------LEVEL-2--------------------
+
+### Box Model in CSS
+CSS boxes have 3 areas:
+1. **Padding** – Space between content and border.
+2. **Border** – The line after padding.
+3. **Margin** – Space between elements.
+
+**Border Properties:**
+- color, width, style, radius
+
+**Shorthand:**
+```css
+border: width style color;
+```
+
+**Padding Shorthand:**
 ```css
 padding: top right bottom left;
+```
+
+**Margin Shorthand:**
+```css
 margin: top right bottom left;
 ```
 
-* Single value applies to all sides equally.
-
-#### 🧱 Display
-
-* `inline`, `block`, `inline-block`, `none`
-* `visibility: hidden` (reserves space)
-* `display: none` (removes element from flow)
-
-#### 🎨 RGBA
-
-* `rgba(255, 0, 0, 0.75)` – sets color with opacity
+**Note:**  
+To create circles, use a square box with `border-radius: 50%`.
 
 ---
 
-### 🟩 Level 3 – Relative Units & Positioning
+### Display Property
+- **inline:** Takes only necessary space. Cannot set width/margin/padding.
+- **block:** Takes full width.
+- **inline-block:** Like inline, but allows margin/padding.
+- **none:** Removes element from flow.
 
-#### 📐 Relative Units
+**Visibility vs Display:**
+- `visibility: hidden` hides element but reserves space.
+- `display: none` removes element and space.
 
-* `%` – Relative to parent size
-* `em` – Relative to parent font size
-* `rem` – Relative to root font size
-* `vh`, `vw` – Relative to viewport height/width
-
-#### 📌 Position Property
-
-* `static` – Default (no positioning)
-* `relative` – Relative to itself
-* `absolute` – Relative to nearest positioned ancestor
-* `fixed` – Relative to browser window
-* `sticky` – Sticks based on scroll
-* `z-index` – Controls stacking
-
-#### 🌄 Backgrounds
-
-* `background-image: url('path')`
-* `background-size: contain | cover`
-* `background-repeat: no-repeat`
+**RGBA Color System:**
+Adds alpha (opacity).  
+Example: `rgba(255, 0, 0, 0.75)`
 
 ---
 
-### 🟥 Level 4 – Flexbox & Media Queries
+## -------------------LEVEL-3-------------------
 
-#### 🧰 Flexbox Basics
+### Relative Units
+1. **% (percent):** Based on parent size.
+2. **em:** Based on parent font size.
+3. **rem:** Based on root element font size.
+4. **vh:** Viewport height.
+5. **vw:** Viewport width.
 
-* One-dimensional layout (row/column)
-* `display: flex;`
+---
 
-#### Flex Container Properties
+### Position Property
+Defines element position:
+1. `static` – Default.
+2. `relative` – Relative to itself.
+3. `absolute` – Relative to the nearest positioned ancestor.
+4. `fixed` – Relative to browser window.
+5. `sticky` – Based on scroll position.
 
-* `flex-direction: row | column | row-reverse | column-reverse`
-* `justify-content: flex-start | center | space-between | space-around`
-* `align-items: flex-start | center | stretch`
+**z-index:**  
+Defines stacking order.  
+Higher value = above.
 
-#### Flex Item Properties
+---
 
-* `align-self`, `flex-grow`, `flex-shrink`
-
-#### 📱 Media Queries
-
+### Background Image
 ```css
-@media (max-width: 600px) {
-  div {
-    background-color: red;
-  }
+background-image: url("path");
+background-size: cover; /* contain, auto */
+background-repeat: no-repeat;
+```
+
+---
+
+## -------------------LEVEL-4-------------------
+
+### Flexbox (Flexible Box Layout)
+One-dimensional layout method (row/column).
+
+**Flex Container:** Parent of flex items.  
+- Main axis: horizontal  
+- Cross axis: vertical
+
+**Container Properties:**
+- `display: flex`
+- `flex-direction: row | column | reverse`
+- `justify-content: flex-start | center | space-between`
+- `align-items: flex-start | center`
+
+**Item Properties:**
+- `align-self`
+- `flex-grow`
+- `flex-shrink`
+
+**Note:**  
+Items stay in container unless content exceeds it.
+
+---
+
+### Media Queries
+Used for responsive design.
+```css
+@media (width: 600px) {
+    div {
+        background-color: red;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 600px) {
+    /* styles */
 }
 ```
 
-* Can combine `min-width` and `max-width` for ranges
+---
+
+## -------------------LEVEL-5-------------------
+
+### Transitions
+```css
+transition-property: property;
+transition-duration: time;
+transition-timing-function: ease;
+transition-delay: time;
+```
+**Shorthand:**  
+`transition: property duration timing-function delay;`
 
 ---
 
-### 🟪 Level 5 – Transitions, Animations & Grid
-
-#### 🔄 Transitions
-
-* `transition-property`, `transition-duration`, `transition-timing-function`, `transition-delay`
-* Shorthand:
-
-  ```css
-  transition: all 0.3s ease-in-out;
-  ```
-
-#### 👆 Pseudo Classes
-
-* `:hover`, `:active`
-
-#### 🎮 Transformations
-
-* `transform: rotate(45deg)`
-* `transform: scale(1.5)`
-* `transform: translate(50px, 100px)`
-* `transform: skew(45deg)`
-
-#### 🌀 Animations
-
+### Pseudo Classes
 ```css
-@keyframes slide {
-  from { left: 0; }
-  to { left: 100px; }
+element:hover { /* on mouse hover */ }
+element:active { /* when clicked */ }
+```
+
+---
+
+### CSS Transforms
+- `rotate(deg)`
+- `scale(x, y)`
+- `translate(x, y)`
+- `skew(deg)`
+
+**Note:**  
+Apply to both container and content.  
+Rotation may make elements invisible due to axis position.
+
+---
+
+### Animations
+```css
+@keyframes myAnimation {
+    from { ... }
+    to { ... }
+}
+
+animation-name: myAnimation;
+animation-duration: 2s;
+animation-delay: 1s;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+```
+
+**Shorthand:**  
+`animation: name duration function delay count direction;`
+
+**Using %:**
+```css
+@keyframes myAnim {
+    0% { ... }
+    50% { ... }
+    100% { ... }
 }
 ```
 
-* Properties: `animation-name`, `animation-duration`, `animation-delay`, `animation-iteration-count`, `animation-direction`
-* Use `%` for keyframe stages: `0%`, `50%`, `100%`
-
-#### 🌐 Font Awesome
-
-* Use it for free icons in your websites.
+**Tip:** Use **Font Awesome** for free icons and fonts.
 
 ---
 
-### 📐 CSS Grid Layout
+### CSS Grid
+A layout system with rows and columns (like Excel).
 
-* Grid = layout with rows & columns (like Excel)
+**Container Properties:**
+- `grid-template-rows`
+- `grid-template-columns`
+- `row-gap`
+- `column-gap`
+- `grid-template-columns: repeat(n, size)`
+- `grid-template-rows: repeat(n, size)`
 
-#### Grid Container Properties
+**Item Properties:**
+- `grid-column-start`, `grid-column-end`
+- `grid-row-start`, `grid-row-end`
 
-* `display: grid`
-* `grid-template-columns`, `grid-template-rows`
-* `column-gap`, `row-gap`
-* Example: `grid-template-columns: repeat(3, 1fr);`
-
-#### Grid Item Properties
-
-* `grid-column-start`, `grid-column-end`
-* `grid-row-start`, `grid-row-end`
-
----
-
-## ✅ Sample Project
-
-A basic **Amazon Clone** layout using Flexbox and CSS concepts is included in this repo. See the `project` folder for full HTML/CSS code.
+**Note:**  
+Items can overlap. Use `z-index` to control stacking.
 
 ---
-
-## 📌 Note
-
-These notes are part of my learning journey and are organized for quick reference and revision.
-
----
-
-## 🔗 Author
-
-**Mayank Kumar Gupta**
-*For queries or collaboration, connect via [LinkedIn](https://www.linkedin.com)*
